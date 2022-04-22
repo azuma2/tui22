@@ -87,6 +87,11 @@ export default {
   },
 
   
+firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        user.uid // ユーザのID取り出し
+      }
+    })
 };
 
 

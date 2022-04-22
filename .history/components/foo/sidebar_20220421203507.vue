@@ -135,8 +135,6 @@ P{
 
 
 <script>
-import firebase from '~/plugins/firebase'
-
 
 export default {
   data() {
@@ -154,10 +152,8 @@ export default {
       this.contactLists = resData.data.data;
       console.log(response);
     },
-    
     async insertContact() {
       const sendData = {
-        user_id: this.newUser_id,
         content: this.newContent,
       };
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
@@ -165,20 +161,9 @@ export default {
       console.log(response);
     },
   },
-  
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid); // ユーザのID確認
-        this.user_id = user.uid;
-      }
-    });
     this.getContact();
   },
-  
-
-
 };
-
 
 </script>

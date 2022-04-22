@@ -120,7 +120,7 @@ P{
         
           <textarea class="area" type="text"  name="post" />
           <div class="btnichi">
-            <input class="btn2" type="submit" @click="insertContact"   value="シェアする" />
+            <input class="btn2" type="submit" @click="insertContact"  v-model="insertContact" value="シェアする" />
           </div>
         
 
@@ -135,8 +135,6 @@ P{
 
 
 <script>
-import firebase from '~/plugins/firebase'
-
 
 export default {
   data() {
@@ -154,7 +152,6 @@ export default {
       this.contactLists = resData.data.data;
       console.log(response);
     },
-    
     async insertContact() {
       const sendData = {
         user_id: this.newUser_id,
@@ -165,20 +162,9 @@ export default {
       console.log(response);
     },
   },
-  
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid); // ユーザのID確認
-        this.user_id = user.uid;
-      }
-    });
     this.getContact();
   },
-  
-
-
 };
-
 
 </script>

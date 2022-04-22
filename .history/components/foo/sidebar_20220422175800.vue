@@ -135,8 +135,6 @@ P{
 
 
 <script>
-import firebase from '~/plugins/firebase'
-
 
 export default {
   data() {
@@ -165,7 +163,7 @@ export default {
       console.log(response);
     },
   },
-  
+  import firebase from '~/plugins/firebase'
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

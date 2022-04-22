@@ -135,8 +135,6 @@ P{
 
 
 <script>
-import firebase from '~/plugins/firebase'
-
 
 export default {
   data() {
@@ -165,17 +163,17 @@ export default {
       console.log(response);
     },
   },
-  
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid); // ユーザのID確認
-        this.user_id = user.uid;
-      }
-    });
     this.getContact();
   },
   
+firebase
+    .auth()
+    .onAuthStateChanged((user) => {
+      if (user) {
+        user.uid // ユーザのID取り出し
+      }
+    })
 
 
 };

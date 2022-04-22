@@ -34,7 +34,7 @@ justify-content: space-between;
     <NuxtLink to="/toukou">投稿</NuxtLink>
     <NuxtLink to="/login">ログイン</NuxtLink>
     <NuxtLink to="/register">登録</NuxtLink>
-    <NuxtLink to="/comment">投稿</NuxtLink>
+    <NuxtLink to="/c">投稿</NuxtLink>
   </div>
 </div>
   

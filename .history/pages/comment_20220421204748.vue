@@ -63,7 +63,7 @@ export default {
         name: this.newName,
         email: this.newEmail,
       };
-      await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
+      await this.$axios.post(""http://127.0.0.1:8000/api/post/store", sendData);
       this.getContact();
     },
     async updateContact(id, name, email) {
@@ -72,25 +72,20 @@ export default {
         email: email,
       };
       await this.$axios.put(
-        "http://127.0.0.1:8000/api/post/store" + id,
+        "http://127.0.0.1:8000/api/contact/" + id,
         sendData
       );
       this.getContact();
     },
     async deleteContact(id) {
-      await this.$axios.delete("http://127.0.0.1:8000/api/post/store" + id);
+      await this.$axios.delete("http://127.0.0.1:8000/api/contact/" + id);
       this.getContact();
     },
   },
   created() {
     this.getContact();
   },
-
-  
 };
-
-
-
 </script>
 
 

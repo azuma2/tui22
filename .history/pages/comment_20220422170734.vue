@@ -85,12 +85,13 @@ export default {
   created() {
     this.getContact();
   },
-
-  
 };
 
-
-
+firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        user.uid // ユーザのID取り出し
+      }
+    })
 </script>
 
 

@@ -85,12 +85,18 @@ export default {
   created() {
     this.getContact();
   },
-
-  
 };
 
+firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        user.uid // ユーザのID取り出し
+      }
+    })
 
-
+          const sendData = {
+        user_id: “1”,
+        content: “投稿内容”,
+      };
 </script>
 
 

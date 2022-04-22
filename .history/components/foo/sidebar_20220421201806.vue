@@ -1,3 +1,38 @@
+
+<template>
+<div class="row">
+<div class="col-3">
+  <div class="sidebar">
+    <div class="sidebar-wrapper">
+      <div class="sidebar-link-area">
+        <div class="logo2"><img class="logo" src="/img/logo.png"></div>
+        <!-- サイドバーメニュー -->
+        <div class="syde">
+          
+          <div class="icon2"><img class="icon" src="/img/home.png"></div><NuxtLink to="/"><p class="moji">ホーム</p></NuxtLink>
+        </div>
+        <div class="syde">
+          <div class="icon2"><img class="icon" src="/img/logout.png"></div><NuxtLink to="/logout"><p class="moji">ログアウト</p></NuxtLink>
+        </div>
+        <p class="moji">シェア</p>
+
+
+        
+          <textarea class="area" type="text"  name="post" />
+          <div class="btnichi">
+            <input class="btn2" type="submit" value="シェアする" @click="insertContact" v-model.post="fruit.num"/>
+          </div>
+        
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</template>
+
+
+
 <style>
 .sidebar {
   background-color: rgb(41, 45, 88);
@@ -97,46 +132,7 @@ P{
 
 </style>
 
-
-
-<template>
-<div class="row">
-<div class="col-3">
-  <div class="sidebar">
-    <div class="sidebar-wrapper">
-      <div class="sidebar-link-area">
-        <div class="logo2"><img class="logo" src="/img/logo.png"></div>
-        <!-- サイドバーメニュー -->
-        <div class="syde">
-          
-          <div class="icon2"><img class="icon" src="/img/home.png"></div><NuxtLink to="/"><p class="moji">ホーム</p></NuxtLink>
-        </div>
-        <div class="syde">
-          <div class="icon2"><img class="icon" src="/img/logout.png"></div><NuxtLink to="/logout"><p class="moji">ログアウト</p></NuxtLink>
-        </div>
-        <p class="moji">シェア</p>
-
-
-        
-          <textarea class="area" type="text"  name="post" />
-          <div class="btnichi">
-            <input class="btn2" type="submit" @click="insertContact"   value="シェアする" />
-          </div>
-        
-
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-</template>
-
-
-
-
 <script>
-import firebase from '~/plugins/firebase'
-
 
 export default {
   data() {
@@ -154,7 +150,6 @@ export default {
       this.contactLists = resData.data.data;
       console.log(response);
     },
-    
     async insertContact() {
       const sendData = {
         user_id: this.newUser_id,
@@ -165,20 +160,9 @@ export default {
       console.log(response);
     },
   },
-  
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid); // ユーザのID確認
-        this.user_id = user.uid;
-      }
-    });
     this.getContact();
   },
-  
-
-
 };
-
 
 </script>

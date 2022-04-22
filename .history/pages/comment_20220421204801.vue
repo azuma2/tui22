@@ -85,12 +85,7 @@ export default {
   created() {
     this.getContact();
   },
-
-  
 };
-
-
-
 </script>
 
 
