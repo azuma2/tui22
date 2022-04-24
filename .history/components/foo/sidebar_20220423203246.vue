@@ -118,7 +118,7 @@ P{
 
 
           
-          <textarea v-model="content" class="area" type="text"  name="post" />
+          <textarea class="area" type="text"  name="post" />
           <div class="btnichi">
             <input class="btn2" type="submit" @click="insertContact"   value="シェアする" />
           </div>
@@ -156,15 +156,11 @@ export default {
     },
     
     async insertContact() {
-      　console.log(this.user_id)
-    console.log(this.content)
       const sendData = {
-        user_id: this.User_id,
-        content: this.Content,
+        user_id: this.user_id,
+        content: this.content,
         
       };
-      console.log(sendData)
-
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
       this.getContact();
       console.log(sendData);
@@ -176,8 +172,6 @@ export default {
       if (user) {
         console.log(user.uid); // ユーザのID確認
         this.user_id = user.uid;
-        }else{
-          console.log("認証に失敗しました");
       }
     });
     this.getContact();

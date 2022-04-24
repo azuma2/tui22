@@ -175,9 +175,8 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
+        console.log(user.uid);
         this.user_id = user.uid;
-        }else{
-          console.log("認証に失敗しました");
       }
     });
     this.getContact();

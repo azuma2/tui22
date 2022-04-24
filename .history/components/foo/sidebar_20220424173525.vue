@@ -156,7 +156,7 @@ export default {
     },
     
     async insertContact() {
-      　console.log(this.user_id)
+      　console.log(this. user_id)
     console.log(this.content)
       const sendData = {
         user_id: this.User_id,
@@ -176,8 +176,6 @@ export default {
       if (user) {
         console.log(user.uid); // ユーザのID確認
         this.user_id = user.uid;
-        }else{
-          console.log("認証に失敗しました");
       }
     });
     this.getContact();

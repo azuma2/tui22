@@ -2452,7 +2452,7 @@ async@^2.6.2:
   dependencies:
     lodash "^4.17.14"
 
-async@^3.2.0, async@^3.2.3:
+async@^3.2.0, async@^3.2.2, async@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.3.tgz#ac53dafd3f4720ee9e8a160628f18ea91df196c9"
   integrity sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==
@@ -4909,10 +4909,17 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-firebase-tools@^10.4.2:
-  version "10.4.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-10.4.2.tgz#39e3d896b7890341a2bc9d63c6994b74e8f43f64"
-  integrity sha512-SrJX7ZroWulM4WH66GHAFAWKX4yvmofKVOIzSGnJ7wOsmqiapAEf0V2HwmMdlEKbRddwd+LSEa9wnNFVzjrebQ==
+firebase-frameworks@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/firebase-frameworks/-/firebase-frameworks-0.3.0.tgz#45bb681c13bd8b5038e281d48d6337de81ce943b"
+  integrity sha512-Zxtx5WsD8ZZdItIeDjjpM+JgaIWDdwBujmLYLKf2Ou6onyRsd8bNRrnVsqrnq4S3FN9TcNYliXdwMu7AwYdW7Q==
+  dependencies:
+    tslib "^2.3.1"
+
+firebase-tools@^10.7.1:
+  version "10.7.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-10.7.1.tgz#9d08e2a79621638759fb2f6259439c37ebc3c5d6"
+  integrity sha512-anZw+bc7Lz8Zw90qGJz9PdmmZwzhqsMF5L6SRT5N/A5Wg0wpsLwYqXVZXIERWlqNjo0yeH2tVo2GfaQrchmbpA==
   dependencies:
     "@google-cloud/pubsub" "^2.18.4"
     abort-controller "^3.0.0"
@@ -4935,6 +4942,7 @@ firebase-tools@^10.4.2:
     exit-code "^1.0.2"
     express "^4.16.4"
     filesize "^6.1.0"
+    firebase-frameworks "^0.3.0"
     fs-extra "^5.0.0"
     glob "^7.1.2"
     google-auth-library "^7.11.0"
@@ -9575,12 +9583,12 @@ safe-stable-stringify@^2.3.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-save@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/save/-/save-2.4.0.tgz#af93ff9b3d7a41d0aff49a23433870613a460f9b"
-  integrity sha512-wd5L2uVnsKYkIUaK6i8Ie66IOHaI328gMF0MPuTJtYOjXgUolC33LSIk7Qr8WVA55QHaGwfiVS8a7EFIeGOR3w==
+save@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/save/-/save-2.5.0.tgz#426663ca04eeaf87f909656aec52a1ba5d7e6195"
+  integrity sha512-xiVLpKVbx8EmW0HDkNRjYL271OnIRCo8VGWAEq6/K+E0dgNrwKV2xvKXdfPj6HGYA6l760800LyewSY3ooljCg==
   dependencies:
-    async "^2.6.2"
+    async "^3.2.2"
     event-stream "^4.0.1"
     lodash.assign "^4.2.0"
     mingo "1"
