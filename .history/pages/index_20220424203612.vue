@@ -29,7 +29,7 @@ justify-content: space-between;
   </div>
   <div class="main2">
     <Nuxt />
-    <p>{{ message }}</p>
+    
     <NuxtLink to="/logout">ログアウト</NuxtLink>
     <NuxtLink to="/component">コンポーネント</NuxtLink>
     <NuxtLink to="/toukou">投稿</NuxtLink>
