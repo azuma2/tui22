@@ -184,6 +184,21 @@ export default {
   },
   
 
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          data.user.sendEmailVerification().then(async() => {
+            const sendData = {
+              id: data.user.uid,
+              name: this.name,
+              email: this.email,
+              password: this.password,
+            };
+            await this.$axios.post("http://127.0.0.1:8000/api/user/store", sendData);
+            this.$router.replace("/");
+          });
+        })
 
 
 };

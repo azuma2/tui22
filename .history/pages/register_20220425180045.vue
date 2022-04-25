@@ -38,10 +38,13 @@ export default {
         return
       }
       firebase
+
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((data) => {
-          data.user.sendEmailVerification().then(async() => {
+          data.user.sendEmailVerification()
+          .then((data) => {
+          data.user.sendEmailVerification().then(() => {
             const sendData = {
               id: data.user.uid,
               name: this.name,
