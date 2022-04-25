@@ -183,6 +183,35 @@ export default {
     this.getContact();
   },
   
+
+firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          data.user.sendEmailVerification().then(() => {
+            // ここにユーザ作成APIのリクエストを送信する処理を記述
+            this.$router.replace('/')
+          })
+        })
+
+
+ data() {
+    return {
+      message: 'ログインができておりません',
+    }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.message = 'ログイン済みです'
+      }
+    })
+  },
+}
+
+
+
+
 };
 
 

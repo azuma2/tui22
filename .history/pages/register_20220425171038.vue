@@ -5,10 +5,6 @@
       <div class="nakami">
         <div class="narabe"><h2>新規登録</h2></div>
         
-
-        <label><input class="input-add" v-model="name" type="name" required placeholder="名前"/></label>
-        <br />
-
         <label><input class="input-add" v-model="email" type="email" required placeholder="メールアドレス"/></label>
         <br />
         <label><input class="input-add" v-model="password" type="password" required placeholder="パスワード"/></label>
@@ -26,28 +22,23 @@ import firebase from '~/plugins/firebase'
 export default {
   data() {
     return {
-      name: null,
       email: null,
       password: null,
     }
   },
   methods: {
     register() {
-      if (!this.name || !this.email || !this.password) {
+      if (!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
       }
       firebase
 
+      
         .auth()
-        .createUserWithEmailAndPassword(this.name,this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           data.user.sendEmailVerification().then(() => {
-        const sendData = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        }
             this.$router.replace('/')
           })
         })

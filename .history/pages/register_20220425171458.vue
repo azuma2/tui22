@@ -33,14 +33,14 @@ export default {
   },
   methods: {
     register() {
-      if (!this.name || !this.email || !this.password) {
+      if (!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
       }
       firebase
 
         .auth()
-        .createUserWithEmailAndPassword(this.name,this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           data.user.sendEmailVerification().then(() => {
         const sendData = {

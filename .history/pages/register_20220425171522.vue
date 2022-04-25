@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     register() {
-      if (!this.name || !this.email || !this.password) {
+      if (!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
       }

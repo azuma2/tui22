@@ -172,17 +172,26 @@ export default {
   },
   
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid); // ユーザのID確認
-        this.user_id = user.uid;
-        }else{
-          console.log("認証に失敗しました");
-      }
-    });
-    this.getContact();
+firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          data.user.sendEmailVerification().then(() => {
+            
+            
+            this.$router.replace('/')
+          })
+        })
   },
   
+
+
+
+
+
+
+
+
 };
 
 

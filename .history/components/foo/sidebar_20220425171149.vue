@@ -171,8 +171,7 @@ export default {
     },
   },
   
-  created() {
-    firebase.auth().onAuthStateChanged((user) => {
+  created() {    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
         this.user_id = user.uid;
@@ -181,8 +180,21 @@ export default {
       }
     });
     this.getContact();
+
+
+            this.$router.replace('/')
+          })
+        })
   },
   
+
+
+
+
+
+
+
+
 };
 
 
