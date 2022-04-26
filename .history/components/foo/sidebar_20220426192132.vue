@@ -169,14 +169,14 @@ export default {
       console.log(sendData)
 
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
-      this.content = "";
       this.getContact();
       console.log(sendData);
     },
   },
   
   created() {
-    
+    await this.$axios.post(..., sendData);
+this.content = "";
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
@@ -187,7 +187,6 @@ export default {
       }
     });
     this.getContact();
-    
   },
 
 

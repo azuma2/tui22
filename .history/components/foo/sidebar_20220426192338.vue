@@ -169,8 +169,8 @@ export default {
       console.log(sendData)
 
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
-      this.content = "";
       this.getContact();
+      this.content = "";
       console.log(sendData);
     },
   },

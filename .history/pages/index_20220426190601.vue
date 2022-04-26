@@ -52,7 +52,7 @@ export default {
     }
   },
   created() {
- 
+    this.content();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.message = 'ログイン済みです'

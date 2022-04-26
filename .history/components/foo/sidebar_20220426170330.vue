@@ -164,33 +164,27 @@ export default {
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,
+        
       };
-
       console.log(sendData)
 
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
-      this.content = "";
       this.getContact();
       console.log(sendData);
     },
   },
   
   created() {
-    
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
         this.user_id = user.uid;
-        
         }else{
           console.log("認証に失敗しました");
       }
     });
     this.getContact();
-    
   },
-
-
   
 
 

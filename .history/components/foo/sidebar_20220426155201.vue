@@ -115,7 +115,6 @@ P{
           <div class="icon2"><img class="icon" src="/img/logout.png"></div><NuxtLink to="/logout"><p class="moji">ログアウト</p></NuxtLink>
         </div>
         <p class="moji">シェア</p>
-        <p>{{ content }}</p>
 
 
           
@@ -162,35 +161,29 @@ export default {
       const sendData = {
         user_id: this.user_id,
         content: this.content,
-        created_at: this.created_at,
-        updated_at: this.updated_at,
+        created_at: this.
+        updated_at
+        
       };
-
       console.log(sendData)
 
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
-      this.content = "";
       this.getContact();
       console.log(sendData);
     },
   },
   
   created() {
-    
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
         this.user_id = user.uid;
-        
         }else{
           console.log("認証に失敗しました");
       }
     });
     this.getContact();
-    
   },
-
-
   
 
 

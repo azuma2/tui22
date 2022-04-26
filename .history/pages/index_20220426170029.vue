@@ -30,7 +30,7 @@ justify-content: space-between;
   <div class="main2">
     <Nuxt />
     <p>{{ message }}</p>
-    
+    <p>{{ content }}</p>
     <NuxtLink to="/logout">ログアウト</NuxtLink>
     <NuxtLink to="/component">コンポーネント</NuxtLink>
     <NuxtLink to="/toukou">投稿</NuxtLink>
@@ -52,7 +52,6 @@ export default {
     }
   },
   created() {
- 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.message = 'ログイン済みです'
