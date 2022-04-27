@@ -141,8 +141,8 @@ export default {
     updateContent(content) {
       this.content = content;
     },
-    updateName(name) {
-      this.name = name;
+    updateName(content) {
+      this.content = content;
     },
   },
 

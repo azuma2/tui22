@@ -68,7 +68,6 @@ background-color: transparent;
 <div class="waku">
   <div class="tes">
   <FooSidebar @updateContent="updateContent"></FooSidebar>
-  <Register @updateName="updateName"></Register>
   </div>
   <div class="main2">
 
@@ -140,9 +139,6 @@ export default {
 
     updateContent(content) {
       this.content = content;
-    },
-    updateName(name) {
-      this.name = name;
     },
   },
 

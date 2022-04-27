@@ -9,24 +9,12 @@ div{
   color: #ffffff;
 }
 
-h1{
-   text-align: left;
-   padding: 5px;
-}
 
-.post{
-  text-align: left;
-  border: solid;border-color: #fff;
-  border-width: 1px;
-}
-
-.post2{
-  border: solid;border-color: #fff;
-  border-width: 1px;
-  padding: 20px;
-}
-
-
+    
+        td {
+      padding: 5px 10px;
+      text-align: center;
+    }
 
     tr{
       border: solid;border-color: #fff;
@@ -42,11 +30,6 @@ h1{
 .waku{
 justify-content: space-between;
   display: flex;
-    width: 650px;
-    padding: 10px;
-    position: absolute;
-    top: 0px;
-    left: 1%;
 }
 
 .main2{
@@ -68,15 +51,16 @@ background-color: transparent;
 <div class="waku">
   <div class="tes">
   <FooSidebar @updateContent="updateContent"></FooSidebar>
-  <Register @updateName="updateName"></Register>
   </div>
   <div class="main2">
-
+    <Nuxt />
     <NuxtLink to="/logout">ログアウト</NuxtLink>
+    <NuxtLink to="/component">コンポーネント</NuxtLink>
+    <NuxtLink to="/comment">投稿</NuxtLink>
     <NuxtLink to="/login">ログイン</NuxtLink>
     <NuxtLink to="/register">登録</NuxtLink>
-    
-
+    <NuxtLink to="/comment">投稿</NuxtLink>
+  </div>
 
         <table>
         <tr>
@@ -84,19 +68,17 @@ background-color: transparent;
 
         </tr>
         <tr >
-          <td class=post><div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ user.name }}
+          <td><p v-for="post in contactLists" :key="post">
+            {{ post.content }}
             <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
             <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
-          
-            <NuxtLink to="/comment"><button class="btn3"><img class="icon" src="/img/feather.png"></button></NuxtLink><br>
-            {{ post.content }}
-            </div></td>
+            <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/feather.png"></button>
+            </p></td>
         </tr>
       </table>
 </div>
  
-  </div>
+
 
 
 </template>
@@ -110,7 +92,6 @@ export default {
      return {
       user_id: "",
       content: "",
-      name: "",
       contactLists: [],
       message: 'ログインができておりません',
     }
@@ -140,9 +121,6 @@ export default {
 
     updateContent(content) {
       this.content = content;
-    },
-    updateName(name) {
-      this.name = name;
     },
   },
 

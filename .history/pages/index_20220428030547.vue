@@ -11,19 +11,12 @@ div{
 
 h1{
    text-align: left;
-   padding: 5px;
 }
 
 .post{
   text-align: left;
   border: solid;border-color: #fff;
   border-width: 1px;
-}
-
-.post2{
-  border: solid;border-color: #fff;
-  border-width: 1px;
-  padding: 20px;
 }
 
 
@@ -68,14 +61,13 @@ background-color: transparent;
 <div class="waku">
   <div class="tes">
   <FooSidebar @updateContent="updateContent"></FooSidebar>
-  <Register @updateName="updateName"></Register>
   </div>
   <div class="main2">
 
     <NuxtLink to="/logout">ログアウト</NuxtLink>
     <NuxtLink to="/login">ログイン</NuxtLink>
     <NuxtLink to="/register">登録</NuxtLink>
-    
+    <NuxtLink to="/comment">投稿</NuxtLink>
 
 
         <table>
@@ -84,14 +76,14 @@ background-color: transparent;
 
         </tr>
         <tr >
-          <td class=post><div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ user.name }}
+          <td class=post><p class=post2 v-for="post in contactLists" :key="post">
+            名前
             <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
             <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
-            <NuxtLink to="/comment"><button class="btn3"><img class="icon" src="/img/feather.png"></button></NuxtLink><br>
+            <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/feather.png"></button><br>
             {{ post.content }}
-            </div></td>
+            </p></td>
         </tr>
       </table>
 </div>
@@ -110,7 +102,6 @@ export default {
      return {
       user_id: "",
       content: "",
-      name: "",
       contactLists: [],
       message: 'ログインができておりません',
     }
@@ -140,9 +131,6 @@ export default {
 
     updateContent(content) {
       this.content = content;
-    },
-    updateName(name) {
-      this.name = name;
     },
   },
 

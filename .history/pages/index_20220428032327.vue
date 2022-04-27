@@ -142,7 +142,7 @@ export default {
       this.content = content;
     },
     updateName(name) {
-      this.name = name;
+      this.name = content;
     },
   },
 

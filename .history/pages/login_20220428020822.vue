@@ -11,7 +11,7 @@
 }
     
         td {
-      
+      padding: 5px 10px;
       text-align: center;
     }
 
@@ -63,7 +63,7 @@
 }
     h1 {
       font-size:32px;
-      color:white;
+
       text-shadow:1px 0 5px #289ADC;
       margin-left: 1px
     }

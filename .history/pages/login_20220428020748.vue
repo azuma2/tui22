@@ -11,7 +11,7 @@
 }
     
         td {
-      
+      padding: 5px 10px;
       text-align: center;
     }
 
@@ -23,7 +23,7 @@
     
     border: 2px solid #dc70fa;
     font-size: 12px;
-    color: #fff;
+
     background-color: #dc70fa;
     font-weight: bold;
     padding: 8px 16px;

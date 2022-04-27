@@ -109,10 +109,10 @@ P{
         <!-- サイドバーメニュー -->
         <div class="syde">
           
-          <div class="icon2"><img class="icon" src="/img/home.png"></div><NuxtLink to="/"><p class="moji">ホーム</p></NuxtLink>
+          <div class="icon"><img class="icon" src="/img/home.png"></div><NuxtLink to="/"><p class="moji">ホーム</p></NuxtLink>
         </div>
         <div class="syde">
-          <div class="icon2"><img class="icon" src="/img/logout.png"></div><NuxtLink to="/logout"><p class="moji">ログアウト</p></NuxtLink>
+          <div class="icon"><img class="icon" src="/img/logout.png"></div><NuxtLink to="/logout"><p class="moji">ログアウト</p></NuxtLink>
         </div>
         <p class="moji">シェア</p>
         <p>{{ content }}</p>
@@ -173,10 +173,14 @@ export default {
 
       console.log(sendData)
 
-      await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
+      await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData).then( res => {
+          location.reload();
+          })
       this.content = "";
       this.getContact();
+      
       console.log(sendData);
+      location.reload();
 
 
     },

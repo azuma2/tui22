@@ -11,7 +11,7 @@
 }
     
         td {
-      
+      padding: 5px 10px;
       text-align: center;
     }
 
@@ -52,7 +52,7 @@
     outline: none;
 }
     .card {
-    background-color: #fff;
+
     width: 30vw;
     padding: 30px;
     position: absolute;
