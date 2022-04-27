@@ -9,7 +9,7 @@
       </div>
       <div class="email">
         <label for="content">メールアドレス：</label>
-        <input type="content" name="content" id="content" v-model="content" />
+        <input type="content" name="content" id="content" v-model="email" />
       </div>
       <button @click="insertContact">新規作成</button>
     </div>

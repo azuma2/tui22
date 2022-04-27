@@ -8,8 +8,8 @@
         <input type="text" name="name" id="name" v-model="name" />
       </div>
       <div class="email">
-        <label for="content">メールアドレス：</label>
-        <input type="content" name="content" id="content" v-model="content" />
+        <label for="email">メールアドレス：</label>
+        <input type="email" name="email" id="email" v-model="email" />
       </div>
       <button @click="insertContact">新規作成</button>
     </div>

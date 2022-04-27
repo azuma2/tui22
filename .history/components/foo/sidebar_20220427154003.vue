@@ -184,7 +184,13 @@ export default {
   
   created() {
     
-    
+        async getContact() {
+      const response = await this.$axios.get(
+      "http://127.0.0.1:8000/api/posts"
+      );
+      this.contactLists = response.data.data;
+      console.log(response);
+    },
 
 
     firebase.auth().onAuthStateChanged((user) => {

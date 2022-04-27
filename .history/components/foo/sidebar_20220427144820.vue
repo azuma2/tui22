@@ -118,8 +118,9 @@ P{
         <p>{{ content }}</p>
 
 
-
-          <textarea v-model="content" @input="emitFunc" class="area" />
+          
+          <textarea v-model="content" class="area" type="text"  name="post" />
+          <textarea v-model="content" @input="emitFunc" />
           <div class="btnichi">
             <input class="btn2" type="submit" @click="insertContact"   value="シェアする" />
           </div>
@@ -151,7 +152,7 @@ export default {
 
         emitFunc() {
       this.$emit('updateContent', this.content)
-    },
+    }
 
     async getContact() {
       const response = await this.$axios.get(
@@ -184,9 +185,6 @@ export default {
   
   created() {
     
-    
-
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
@@ -197,9 +195,6 @@ export default {
       }
     });
     this.getContact();
-
-
-    
     
   },
 

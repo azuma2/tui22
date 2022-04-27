@@ -63,13 +63,6 @@ export default {
   methods: {
     
     
-    async getContact() {
-      const response = await this.$axios.get(
-      "http://127.0.0.1:8000/api/posts"
-      );
-      this.contactLists = response.data.data;
-      console.log(response);
-    },
     
 
 
@@ -88,7 +81,6 @@ export default {
         this.message = 'ログイン済みです'
       }
     })
-    this. getContact()
   },
 }
 

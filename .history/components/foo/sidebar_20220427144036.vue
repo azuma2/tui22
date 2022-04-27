@@ -118,8 +118,9 @@ P{
         <p>{{ content }}</p>
 
 
-
-          <textarea v-model="content" @input="emitFunc" class="area" />
+          
+          <textarea v-model="content" class="area" type="text"  name="post" />
+          <textarea v-model="content" @input="emitFunc" />
           <div class="btnichi">
             <input class="btn2" type="submit" @click="insertContact"   value="シェアする" />
           </div>
@@ -149,10 +150,8 @@ export default {
   },
   methods: {
 
-        emitFunc() {
-      this.$emit('updateContent', this.content)
-    },
 
+    
     async getContact() {
       const response = await this.$axios.get(
       "http://127.0.0.1:8000/api/posts"
@@ -177,16 +176,11 @@ export default {
       this.content = "";
       this.getContact();
       console.log(sendData);
-
-
     },
   },
   
   created() {
     
-    
-
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
@@ -197,9 +191,6 @@ export default {
       }
     });
     this.getContact();
-
-
-    
     
   },
 

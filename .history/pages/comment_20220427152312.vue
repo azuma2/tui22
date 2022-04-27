@@ -8,8 +8,8 @@
         <input type="text" name="name" id="name" v-model="name" />
       </div>
       <div class="email">
-        <label for="content">メールアドレス：</label>
-        <input type="content" name="content" id="content" v-model="content" />
+        <label for="email">メールアドレス：</label>
+        <input type="email" name="email" id="email" v-model="mail" />
       </div>
       <button @click="insertContact">新規作成</button>
     </div>
@@ -26,9 +26,9 @@
         <tr v-for="item in contactLists" :key="item.id">
           <td>{{ item.id }}</td>
           <td><input type="text" v-model="item.name" /></td>
-          <td><input type="text" v-model="item.updateContent" /></td>
+          <td><input type="email" v-model="item.email" /></td>
           <td>
-            <button @click="updateContact(item.id, item.name, item.content)">
+            <button @click="updateContact(item.id, item.name, item.email)">
               更新
             </button>
           </td>
@@ -43,7 +43,7 @@
 
 
 <script>
-
+import firebase from '~/plugins/firebase'
 
 export default {
   data() {

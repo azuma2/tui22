@@ -182,9 +182,6 @@ export default {
     },
   },
   
-  created() {
-    
-    
 
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -197,10 +194,6 @@ export default {
       }
     });
     this.getContact();
-
-
-    
-    
   },
 
 

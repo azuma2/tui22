@@ -184,9 +184,6 @@ export default {
   
   created() {
     
-    
-
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
@@ -197,9 +194,6 @@ export default {
       }
     });
     this.getContact();
-
-
-    
     
   },
 

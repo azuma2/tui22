@@ -184,9 +184,6 @@ export default {
   
   created() {
     
-    
-
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid); // ユーザのID確認
@@ -198,8 +195,13 @@ export default {
     });
     this.getContact();
 
-
-    
+     async getContact() {
+      const response = await this.$axios.get(
+      "http://127.0.0.1:8000/api/posts"
+      );
+      this.contactLists = response.data.data;
+      console.log(response);
+    }
     
   },
 

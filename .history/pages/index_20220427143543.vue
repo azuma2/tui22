@@ -25,7 +25,7 @@ justify-content: space-between;
 <template>
 <div class="waku">
   <div class="tes">
-  <FooSidebar @updateContent="updateContent"></FooSidebar>
+  
   </div>
   <div class="main2">
     <Nuxt />
@@ -35,7 +35,7 @@ justify-content: space-between;
     
     <NuxtLink to="/logout">ログアウト</NuxtLink>
     <NuxtLink to="/component">コンポーネント</NuxtLink>
-    <NuxtLink to="/comment">投稿</NuxtLink>
+    <NuxtLink to="/toukou">投稿</NuxtLink>
     <NuxtLink to="/login">ログイン</NuxtLink>
     <NuxtLink to="/register">登録</NuxtLink>
     <NuxtLink to="/comment">投稿</NuxtLink>
@@ -61,34 +61,18 @@ export default {
 
 
   methods: {
-    
-    
-    async getContact() {
-      const response = await this.$axios.get(
-      "http://127.0.0.1:8000/api/posts"
-      );
-      this.contactLists = response.data.data;
-      console.log(response);
-    },
-    
-
-
     updateContent(content) {
       this.content = content;
     },
   },
 
   created() {
-
-    
-    
  
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.message = 'ログイン済みです'
       }
     })
-    this. getContact()
   },
 }
 

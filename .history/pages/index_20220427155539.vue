@@ -88,7 +88,6 @@ export default {
         this.message = 'ログイン済みです'
       }
     })
-    this. getContact()
   },
 }
 

@@ -5,11 +5,11 @@
       <h2>新規作成</h2>
       <div class="name">
         <label for="name">お名前：</label>
-        <input type="text" name="name" id="name" v-model="name" />
+        <input type="text" name="name" id="name" v-model="newName" />
       </div>
       <div class="email">
-        <label for="content">メールアドレス：</label>
-        <input type="content" name="content" id="content" v-model="content" />
+        <label for="email">メールアドレス：</label>
+        <input type="email" name="email" id="email" v-model="newEmail" />
       </div>
       <button @click="insertContact">新規作成</button>
     </div>
@@ -26,9 +26,9 @@
         <tr v-for="item in contactLists" :key="item.id">
           <td>{{ item.id }}</td>
           <td><input type="text" v-model="item.name" /></td>
-          <td><input type="text" v-model="item.updateContent" /></td>
+          <td><input type="email" v-model="item.email" /></td>
           <td>
-            <button @click="updateContact(item.id, item.name, item.content)">
+            <button @click="updateContact(item.id, item.name, item.email)">
               更新
             </button>
           </td>
@@ -43,13 +43,13 @@
 
 
 <script>
-
+import firebase from '~/plugins/firebase'
 
 export default {
   data() {
     return {
-      email: "",
-      name: "",
+      user_id: "",
+      content: "",
       contactLists: [],
     };
   },
@@ -62,8 +62,8 @@ export default {
     },
     async insertContact() {
       const sendData = {
-        name: this.name,
-        email: this.email,
+        content: this.newName,
+        email: this.newEmail,
       };
       await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData);
       this.getContact();

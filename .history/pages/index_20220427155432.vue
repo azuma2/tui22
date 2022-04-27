@@ -62,7 +62,6 @@ export default {
 
   methods: {
     
-    
     async getContact() {
       const response = await this.$axios.get(
       "http://127.0.0.1:8000/api/posts"
@@ -70,7 +69,6 @@ export default {
       this.contactLists = response.data.data;
       console.log(response);
     },
-    
 
 
     updateContent(content) {
@@ -79,8 +77,6 @@ export default {
   },
 
   created() {
-
-    
     
  
     firebase.auth().onAuthStateChanged((user) => {
@@ -88,7 +84,6 @@ export default {
         this.message = 'ログイン済みです'
       }
     })
-    this. getContact()
   },
 }
 
