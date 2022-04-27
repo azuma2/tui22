@@ -34,7 +34,7 @@ justify-content: space-between;
     <button @click="deleteContact(post.id)">削除</button>
     <p v-for="post in contactLists" :key="post">{{ post.content }}</p>
 
-
+    
     
     <NuxtLink to="/logout">ログアウト</NuxtLink>
     <NuxtLink to="/component">コンポーネント</NuxtLink>
@@ -43,29 +43,6 @@ justify-content: space-between;
     <NuxtLink to="/register">登録</NuxtLink>
     <NuxtLink to="/comment">投稿</NuxtLink>
   </div>
-
-        <table>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>EMAIL</th>
-          <th>UPDATE</th>
-          <th>DELETE</th>
-        </tr>
-        <tr >
-          <td><p v-for="post in contactLists" :key="post">{{ post.content }}</p></td>
-          <td></td>
-          <td></td>
-          <td>
-            
-              更新
-
-          </td>
-          <td>
-            <button @click="deleteContact(post.id)">削除</button>
-          </td>
-        </tr>
-      </table>
 </div>
  
 

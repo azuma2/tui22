@@ -23,12 +23,12 @@
           <th>UPDATE</th>
           <th>DELETE</th>
         </tr>
-        <tr v-for="post in contactLists" :key="post.id">
-          <td>{{ post.id }}</td>
+        <tr v-for="item in contactLists" :key="item.id">
+          <td>{{ item.id }}</td>
           <td><input type="text" v-model="item.name" /></td>
-          <td><input type="text" v-model="post.updateContent" /></td>
+          <td><input type="text" v-model="item.updateContent" /></td>
           <td>
-            <button @click="updateContact(item.id, item.name, post.content)">
+            <button @click="updateContact(item.id, item.name, item.content)">
               更新
             </button>
           </td>

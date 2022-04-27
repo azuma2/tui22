@@ -157,7 +157,7 @@ export default {
       const response = await this.$axios.get(
       "http://127.0.0.1:8000/api/posts"
       );
-      this.contactLists = response.data.data;
+      this.contactLists = response.data.items;
       console.log(response);
     },
     

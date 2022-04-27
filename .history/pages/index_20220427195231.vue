@@ -52,9 +52,9 @@ justify-content: space-between;
           <th>UPDATE</th>
           <th>DELETE</th>
         </tr>
-        <tr >
-          <td><p v-for="post in contactLists" :key="post">{{ post.content }}</p></td>
-          <td></td>
+        <tr v-for="post in contactLists" :key="post.id">
+          <td>{{ post.id }}</td>
+          <td><input type="text" v-model="item.name" /></td>
           <td></td>
           <td>
             
