@@ -4,16 +4,17 @@
 
     body {
       font-size:16px;
-      margin: 5px;
+     
   background-color: rgb(41, 45, 88);
   overflow-x: hidden;
+  margin: 0;
     }
-    
+
     .oowaku{
     width: 100%;
     
     top: 10px;
-    margin-top:-30px;
+    margin-top:-10px;
     margin-left: 400px;
     margin-right: 1000px;
     }
@@ -39,6 +40,11 @@ div{
 h1{
    text-align: left;
    padding: 5px;
+    margin: 0;
+}
+
+h2{
+   margin: 0;
 }
 
 .post{
@@ -51,6 +57,8 @@ h1{
   border: solid;border-color: #fff;
   border-width: 1px;
   padding: 20px;
+  margin: 0;
+  font-size: 16px;
 }
 
 
@@ -70,15 +78,15 @@ h1{
 .waku{
 justify-content: space-between;
   display: flex;
-    width: 650px;
-    padding: 10px;
-    position: absolute;
+    width: auto;
+
+
     top: 0px;
     left: 1%;
 }
 
 .main2{
-
+width: 100%;
   display: block;
 }
 
@@ -137,7 +145,7 @@ cursor: pointer;
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ post.user.name }}
+            {{ post.user.name }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -148,8 +156,9 @@ cursor: pointer;
             <p class=post3>{{ post.content }}</p>
             </div></td>
         </tr>
+        <p>{{ message }}</p>
       </table>
-      <p>{{ message }}</p>
+      
 </div>
  
   </div>

@@ -4,6 +4,43 @@ h2{
    text-align: left;
    padding: 5px;
 }
+
+.comment{
+  text-align: left;
+
+  font-size: 24px;
+  margin:0;
+}
+.comedaiji{
+  margin-left: 350px;
+}
+.comeichi{
+  margin-left: 450px;
+}
+
+.btn2 {
+    
+    border: 2px solid #dc70fa;
+    font-size: 12px;
+    color: #fff;
+    background-color: #dc70fa;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+    outline: none;
+}
+
+.area2{
+  margin: 10px;
+  border: 1px solid #ddd;
+    border-radius: 6px;
+    height: 2em;
+    width: 700px;
+    background: #eaedf2;
+    font-size: 18px;
+}
 </style>
 
 <template>
@@ -20,7 +57,7 @@ h2{
 
         <table class=oowaku>
         <tr>
-          <th><h1>ホーム</h1> </th>
+          <th><h1>コメント</h1> </th>
 
         </tr>
         <tr >
@@ -38,20 +75,38 @@ h2{
             </div>
             
             </td>
-            <td>
-              <h2>コメント</h2>
-            </td>
+            <tr>
+              <h2 class=comedaiji>コメント</h2>
+            </tr>
+            <tr>
+              <td class=comment>
+                <p class=post2>ゲスト</p>
+                  <br>
+                  <div class=post2  v-for="comment in contactLists" :key="comment">
+                  {{ comment.content }}
+                  </div>
+                  
+
+                
+
+              </td>
+            </tr>
             <td>
 
             </td>
-
-        </tr>
       </table>
-      <p>{{ message }}</p>
-</div>
- 
+
+  <div class=comeichi>
+    <textarea v-model="content" @input="emitFunc2" class="area2" />
+    <div>
+   <input class="btn2" type="submit" @click="insert2Contact"   value="コメントする" /></div>
   </div>
 
+</div>
+
+ <p>{{ message }}</p>
+  </div>
+      
 
 </template>
 
@@ -73,12 +128,20 @@ export default {
 
   methods: {
 
+
+
+
+     async deleteContact(id) {
+      await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
+      this.getContact();
+    },
+
+
     async getContact() {
       const response = await this.$axios.get(
       "http://127.0.0.1:8000/api/posts"
       );
       this.contactLists = response.data.items;
-      
       console.log(response);
     },
     
@@ -89,15 +152,14 @@ export default {
     },
     updateName(name) {
       this.name = name;
- 
     },
-  },
 
-  async insertContact() {
-      　console.log(this.user_id)
+
+      async insert2Contact() {
+      console.log(this.user_id)
     console.log(this.content)
       const sendData = {
-        user_id: this.user_id,
+        post_id: this.post_id,
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,
@@ -105,17 +167,23 @@ export default {
 
       console.log(sendData)
 
-      await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData).then( res => {
+      await this.$axios.post("http://127.0.0.1:8000/api/comment/store", sendData).then( res => {
           location.reload();
           })
       this.content = "";
       this.getContact();
       
       console.log(sendData);
-      location.reload();
-
-
     },
+
+    
+        emitFunc2() {
+      this.$emit('updateContent', this.content)
+    },
+
+  },
+
+
 
   created() {
 
@@ -127,7 +195,6 @@ export default {
     this.getContact()
   },
 }
-
 
 
 
