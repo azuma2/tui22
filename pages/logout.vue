@@ -3,6 +3,8 @@
     <button @click="logout">ログアウト</button>
     <br />
     <NuxtLink to="/">戻る</NuxtLink>
+    <NuxtLink to="/login">ログイン</NuxtLink>
+    <NuxtLink to="/register">新規登録</NuxtLink>
   </div>
 </template>
 

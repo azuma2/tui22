@@ -45,9 +45,8 @@ h2{
 
             </td>
             
-        </tr>
-        
 
+        </tr>
       </table>
       <h2>コメント</h2>
       <p>{{ message }}</p>

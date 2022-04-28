@@ -26,7 +26,7 @@ h2{
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ post.user.name }}
+            名前{{ user.name }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -44,12 +44,9 @@ h2{
             <td>
 
             </td>
-            
-        </tr>
-        
 
+        </tr>
       </table>
-      <h2>コメント</h2>
       <p>{{ message }}</p>
 </div>
  

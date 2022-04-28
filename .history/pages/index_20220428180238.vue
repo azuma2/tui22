@@ -1,9 +1,117 @@
 
-<style >
-h2{
+<style>
+
+
+    body {
+      font-size:16px;
+      margin: 5px;
+  background-color: rgb(41, 45, 88);
+    }
+    
+    .oowaku{
+    width: 2000px;
+    margin-right:-1800px;
+    top: 10px;
+    margin-top:-30px;
+    }
+
+.narabe{
+  text-align: center;
+}
+    
+        td {
+      
+      text-align: center;
+    }
+
+    .narabe{
+        flex-flow: column;
+    }
+
+
+div{
+  color: #ffffff;
+}
+
+h1{
    text-align: left;
    padding: 5px;
 }
+
+.post{
+  text-align: left;
+  border: solid;border-color: #fff;
+  border-width: 1px;
+}
+
+.post2{
+  border: solid;border-color: #fff;
+  border-width: 1px;
+  padding: 20px;
+}
+
+
+
+    tr{
+      border: solid;border-color: #fff;
+      border-width: 1px;
+    }
+
+    table{
+    border-collapse: collapse;
+
+    }
+
+
+
+.waku{
+justify-content: space-between;
+  display: flex;
+    width: 650px;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    left: 1%;
+}
+
+.main2{
+
+  display: block;
+}
+
+.icon{
+      height: 20px;
+      width: 20px;
+}
+
+.btn3{
+background-color: transparent;
+cursor: pointer;
+margin-right: 30px;
+margin-left: 20px;
+}
+
+.btn4{
+background-color: transparent;
+cursor: pointer;
+margin-right: 60px;
+}
+
+.btn5{
+background-color: transparent;
+cursor: pointer;
+}
+
+.name{
+  font-weight: bold; 
+}
+.post3{
+  padding: 10px;
+  font-size: 24px;
+  margin:0;
+
+}
+
 </style>
 
 <template>
@@ -26,30 +134,18 @@ h2{
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ post.user.name }}
+            名前{{ user.name }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
-            
+              <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
             <p class=post3>{{ post.content }}</p>
-            </div>
-            
-            </td>
-            <td>
-              <h2>コメント</h2>
-            </td>
-            <td>
-
-            </td>
-            
+            </div></td>
         </tr>
-        
-
       </table>
-      <h2>コメント</h2>
       <p>{{ message }}</p>
 </div>
  
@@ -74,8 +170,17 @@ export default {
     
   },
 
+
+
+
   methods: {
 
+     async deleteContact(id) {
+      await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
+      this.getContact();
+    },
+    
+    
     async getContact() {
       const response = await this.$axios.get(
       "http://127.0.0.1:8000/api/posts"
@@ -96,30 +201,6 @@ export default {
     },
   },
 
-  async insertContact() {
-      　console.log(this.user_id)
-    console.log(this.content)
-      const sendData = {
-        user_id: this.user_id,
-        content: this.content,
-        created_at: this.created_at,
-        updated_at: this.updated_at,
-      };
-
-      console.log(sendData)
-
-      await this.$axios.post("http://127.0.0.1:8000/api/post/store", sendData).then( res => {
-          location.reload();
-          })
-      this.content = "";
-      this.getContact();
-      
-      console.log(sendData);
-      location.reload();
-
-
-    },
-
   created() {
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -135,11 +216,3 @@ export default {
 
 
 </script>
-
-
-
-<style>
-
-
-
-</style>
