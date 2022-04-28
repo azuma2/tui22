@@ -8,12 +8,6 @@
   background-color: rgb(41, 45, 88);
     }
     
-    .oowaku{
-    width: 2000px;
-    margin-right:-1800px;
-    top: 10px;
-    margin-top:-30px;
-    }
 
 .narabe{
   text-align: center;
@@ -59,7 +53,6 @@ h1{
 
     table{
     border-collapse: collapse;
-
     }
 
 
@@ -86,30 +79,7 @@ justify-content: space-between;
 
 .btn3{
 background-color: transparent;
-cursor: pointer;
-margin-right: 30px;
-margin-left: 20px;
 }
-
-.btn4{
-background-color: transparent;
-cursor: pointer;
-margin-right: 60px;
-}
-
-.btn5{
-background-color: transparent;
-cursor: pointer;
-}
-
-.name{
-  font-weight: bold; 
-}
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
-
 </style>
 
 <template>
@@ -120,27 +90,25 @@ cursor: pointer;
   </div>
   <div class="main2">
 
-
+    <NuxtLink to="/logout">ログアウト</NuxtLink>
+    <NuxtLink to="/login">ログイン</NuxtLink>
+    <NuxtLink to="/register">登録</NuxtLink>
     
 
 
-        <table class=oowaku>
+        <table>
         <tr>
           <th><h1>ホーム</h1></th>
 
         </tr>
         <tr >
-          <td class=post>
-            <div class=post2  v-for="post in contactLists" :key="post">
+          <td class=post><div class=post2  v-for="post in contactLists" :key="post">
             名前{{ user.name }}
-            
-              <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
-              <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
+            <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
+            <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
-              <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
-            
-            <br>
-            <p class=post3>{{ post.content }}</p>
+            <NuxtLink to="/comment"><button class="btn3"><img class="icon" src="/img/feather.png"></button></NuxtLink><br>
+            {{ post.content }}
             </div></td>
         </tr>
       </table>

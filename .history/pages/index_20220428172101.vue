@@ -105,10 +105,6 @@ cursor: pointer;
 .name{
   font-weight: bold; 
 }
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
 
 </style>
 

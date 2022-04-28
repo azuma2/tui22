@@ -11,8 +11,6 @@
     .oowaku{
     width: 2000px;
     margin-right:-1800px;
-    top: 10px;
-    margin-top:-30px;
     }
 
 .narabe{
@@ -87,14 +85,12 @@ justify-content: space-between;
 .btn3{
 background-color: transparent;
 cursor: pointer;
-margin-right: 30px;
-margin-left: 20px;
+ma
 }
 
 .btn4{
 background-color: transparent;
 cursor: pointer;
-margin-right: 60px;
 }
 
 .btn5{
@@ -102,13 +98,6 @@ background-color: transparent;
 cursor: pointer;
 }
 
-.name{
-  font-weight: bold; 
-}
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
 
 </style>
 
@@ -120,7 +109,9 @@ cursor: pointer;
   </div>
   <div class="main2">
 
-
+    <NuxtLink to="/logout">ログアウト</NuxtLink>
+    <NuxtLink to="/login">ログイン</NuxtLink>
+    <NuxtLink to="/register">登録</NuxtLink>
     
 
 
@@ -140,7 +131,7 @@ cursor: pointer;
               <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            {{ post.content }}
             </div></td>
         </tr>
       </table>

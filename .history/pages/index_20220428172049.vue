@@ -105,10 +105,6 @@ cursor: pointer;
 .name{
   font-weight: bold; 
 }
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
 
 </style>
 
@@ -140,7 +136,7 @@ cursor: pointer;
               <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            <p class=pos>{{ post.content }}</p>
             </div></td>
         </tr>
       </table>

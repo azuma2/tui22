@@ -12,7 +12,6 @@
     width: 2000px;
     margin-right:-1800px;
     top: 10px;
-    margin-top:-30px;
     }
 
 .narabe{
@@ -102,13 +101,6 @@ background-color: transparent;
 cursor: pointer;
 }
 
-.name{
-  font-weight: bold; 
-}
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
 
 </style>
 
@@ -140,7 +132,7 @@ cursor: pointer;
               <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            {{ post.content }}
             </div></td>
         </tr>
       </table>

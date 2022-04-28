@@ -140,7 +140,7 @@ cursor: pointer;
               <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            
             </div></td>
         </tr>
       </table>

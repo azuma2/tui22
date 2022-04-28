@@ -160,7 +160,7 @@ export default {
      return {
       user_id: "",
       content: "",
-      user: "",
+      
       contactLists: [],
       message: 'ログインができておりません',
     }

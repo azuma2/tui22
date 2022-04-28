@@ -102,13 +102,6 @@ background-color: transparent;
 cursor: pointer;
 }
 
-.name{
-  font-weight: bold; 
-}
-.post3{
-  padding: 5px;
-  font-size: 24px;
-}
 
 </style>
 
@@ -132,7 +125,7 @@ cursor: pointer;
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            名前{{ user.name }}
+            名前<p>{{ user.name }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -140,7 +133,7 @@ cursor: pointer;
               <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            {{ post.content }}
             </div></td>
         </tr>
       </table>
