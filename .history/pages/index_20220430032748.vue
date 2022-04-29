@@ -205,7 +205,7 @@ export default {
      const id = this.post_id
      const array = ["/Posts/",id,"/Likes"];
      const path = array.join('')
-     axios.get(path)
+     axios.get(path")
      .then(res => {
        if(res.data == 1) {
          this.status = true
@@ -221,6 +221,8 @@ export default {
 
    like() {                         
      const id = this.post_id
+     const array = ["/Posts/",id,"/Likes"];
+     const path = array.join('')
      axios.post("http://127.0.0.1:8000/api/like/store", sendData)
      .then(res => {
        location.reload();

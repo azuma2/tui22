@@ -152,8 +152,6 @@ cursor: pointer;
               数字
 
 
-
-
               <button v-if="status == false" type="button" @click.prevent="like" class="btn btn-outline-warning">Like</button>
    <button v-else type="button" @click.prevent="like" class="btn btn-warning">Liked</button>
 
@@ -201,34 +199,6 @@ export default {
   methods: {
 
 
-    like_check() {
-     const id = this.post_id
-     const array = ["/Posts/",id,"/Likes"];
-     const path = array.join('')
-     axios.get(path)
-     .then(res => {
-       if(res.data == 1) {
-         this.status = true
-       } else {
-         this.status = false
-       }
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
-
-
-
-   like() {                         
-     const id = this.post_id
-     axios.post("http://127.0.0.1:8000/api/like/store", sendData)
-     .then(res => {
-       location.reload();
-       this.like_check()
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
 
 
 
@@ -275,7 +245,6 @@ export default {
       }
     })
     this.getContact()
-    this.like_check()
 
 
     

@@ -98,14 +98,13 @@ width: 100%;
 .btn3{
 background-color: transparent;
 cursor: pointer;
-
+margin-right: 30px;
 margin-left: 20px;
 }
 
 .btn4{
 background-color: transparent;
 cursor: pointer;
-margin-left: 20px;
 margin-right: 60px;
 }
 
@@ -148,17 +147,8 @@ cursor: pointer;
             <div class=post2  v-for="post in contactLists" :key="post">
             {{ post.user.name }}
             
-              <button class="btn3" @click="deleteContact3(like.id)"><img class="icon" src="/img/heart.png"></button>
-              数字
-
-
-
-
-              <button v-if="status == false" type="button" @click.prevent="like" class="btn btn-outline-warning">Like</button>
-   <button v-else type="button" @click.prevent="like" class="btn btn-warning">Liked</button>
-
-
-
+              <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
+              数字「
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
               <NuxtLink :to="{ path: 'comment', query: { postId: post.id } }"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
@@ -187,8 +177,6 @@ export default {
       user_id: "",
       content: "",
       user: "",
-      like:"",
-      status: false,
       contactLists: [],
       message: 'ログインができておりません',
     }
@@ -199,47 +187,6 @@ export default {
 
 
   methods: {
-
-
-    like_check() {
-     const id = this.post_id
-     const array = ["/Posts/",id,"/Likes"];
-     const path = array.join('')
-     axios.get(path)
-     .then(res => {
-       if(res.data == 1) {
-         this.status = true
-       } else {
-         this.status = false
-       }
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
-
-
-
-   like() {                         
-     const id = this.post_id
-     axios.post("http://127.0.0.1:8000/api/like/store", sendData)
-     .then(res => {
-       location.reload();
-       this.like_check()
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
-
-
-
-
-
-
-
-     async deleteContact3(id) {
-      await this.$axios.delete("http://127.0.0.1:8000/api/like/destroy" + id);
-      this.getContact();
-    },
 
      async deleteContact(id) {
       await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
@@ -275,10 +222,6 @@ export default {
       }
     })
     this.getContact()
-    this.like_check()
-
-
-    
   },
 }
 

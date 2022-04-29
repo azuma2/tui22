@@ -83,8 +83,8 @@ h2{
             </tr>
         <tr >
           <td v-if="post" class=post>
-            
-            <div class="post2" v-for="comment in post.comments" :key="comment">
+            <div class=post2  v-for="content in post.comments" :key="content">
+              <div class="post2" v-for="comment in post.comments" :key="comment">
             ゲスト
             <br>
              <p class=post3>{{ comment.content }}</p>

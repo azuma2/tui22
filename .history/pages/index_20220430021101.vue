@@ -150,15 +150,6 @@ cursor: pointer;
             
               <button class="btn3" @click="deleteContact3(like.id)"><img class="icon" src="/img/heart.png"></button>
               数字
-
-
-
-
-              <button v-if="status == false" type="button" @click.prevent="like" class="btn btn-outline-warning">Like</button>
-   <button v-else type="button" @click.prevent="like" class="btn btn-warning">Liked</button>
-
-
-
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
               <NuxtLink :to="{ path: 'comment', query: { postId: post.id } }"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
@@ -188,7 +179,6 @@ export default {
       content: "",
       user: "",
       like:"",
-      status: false,
       contactLists: [],
       message: 'ログインができておりません',
     }
@@ -201,36 +191,33 @@ export default {
   methods: {
 
 
-    like_check() {
-     const id = this.post_id
-     const array = ["/Posts/",id,"/Likes"];
-     const path = array.join('')
-     axios.get(path)
-     .then(res => {
-       if(res.data == 1) {
-         this.status = true
-       } else {
-         this.status = false
-       }
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
 
 
+      async insert2Contact() {
+      console.log(this.user_id)
+    console.log(this.content)
+      const sendData = {
+        post_id: this.$route.query.postId,
+        content: this.content,
+        created_at: this.created_at,
+        updated_at: this.updated_at,
+      };
 
-   like() {                         
-     const id = this.post_id
-     axios.post("http://127.0.0.1:8000/api/like/store", sendData)
-     .then(res => {
-       location.reload();
-       this.like_check()
-     }).catch(function(err) {
-       console.log(err)
-     })
-   },
+      console.log(sendData)
 
+      await this.$axios.post("http://127.0.0.1:8000/api/comment/store", sendData).then( res => {
+          location.reload();
+          })
+      this.content = "";
+      this.getContact();
+      
+      console.log(sendData);
+    },
 
+    
+        emitFunc2() {
+      this.$emit('updateContent', this.content)
+    },
 
 
 
@@ -275,10 +262,6 @@ export default {
       }
     })
     this.getContact()
-    this.like_check()
-
-
-    
   },
 }
 
