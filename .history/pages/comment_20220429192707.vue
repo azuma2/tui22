@@ -82,11 +82,11 @@ h2{
               <h2 class=comedaiji>コメント</h2>
             </tr>
         <tr >
-          <td v-if="post" class=post>
+          <td class=post>
             <div class=post2  v-for="content in post.comments" :key="content">
             ゲスト
             <br>
-             <p class="post3">{{ comment }}</p>
+             <p class=post3>{{ comment.content }}</p>
             </div>
           </td>
         </tr>

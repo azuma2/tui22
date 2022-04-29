@@ -86,7 +86,7 @@ h2{
             <div class=post2  v-for="content in post.comments" :key="content">
             ゲスト
             <br>
-             <p class="post3">{{ comment }}</p>
+             <p class=post3>{{ comment.content }}</p>
             </div>
           </td>
         </tr>

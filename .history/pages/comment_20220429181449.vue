@@ -62,11 +62,8 @@ h2{
         </tr>
         <tr >
           <td class=post>
-            
-            <div v-if="post" class="post2">
+            <div class=post2  v-for="post in contactLists" :key="post">
             {{ post.user.name }}
-            {{ this.$route.query.postId }}
-            
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -81,16 +78,26 @@ h2{
             <tr>
               <h2 class=comedaiji>コメント</h2>
             </tr>
-        <tr >
-          <td v-if="post" class=post>
-            <div class=post2  v-for="content in post.comments" :key="content">
-            ゲスト
-            <br>
-             <p class="post3">{{ comment }}</p>
-            </div>
-          </td>
-        </tr>
+            <tr>
+              <td class=comment>
+                <p class=post2>ゲスト</p>
+                  <br>
+                  <div class=post2  v-for="comment in contactLists" :key="comment">
+                  
+                  </div>
+                  
 
+                  <v-row justify="center">
+    <v-col cols="9">
+
+{{ this.$route.query.postId }}
+
+
+    </v-col>
+  </v-row>
+
+              </td>
+            </tr>
             <td>
 
             </td>
@@ -160,7 +167,7 @@ export default {
       console.log(this.user_id)
     console.log(this.content)
       const sendData = {
-        post_id: this.$route.query.postId,
+        post_id: this.post_id,
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,
@@ -182,28 +189,33 @@ export default {
       this.$emit('updateContent', this.content)
     },
 
+    async created(){
+      const response = await this.$axios.get(`http://127.0.0.1:8000/api/post/show/${this.$route.query.postId}`);
+      this.post = response.data.data; 
+    } 
 
   },
 
 
 
+  created() {
 
-
-
-async created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.message = "ログイン済みです";
+        this.message = 'ログイン済みです'
       }
-    });
-    this.getContact();
-
-    const response = await this.$axios.get(
+    })
+    this.getContact()
+    
+  const response = await this.$axios.get(
       `http://127.0.0.1:8000/api/post/show/${this.$route.query.postId}`
     );
     this.post = response.data.data;
   },
 }
+
+
+
 </script>
 
 

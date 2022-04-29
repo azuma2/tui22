@@ -82,13 +82,12 @@ h2{
               <h2 class=comedaiji>コメント</h2>
             </tr>
         <tr >
-          <td v-if="post" class=post>
-            <div class=post2  v-for="content in post.comments" :key="content">
+          <td class=post>
+            <div class=post2  v-for="post in contactLists" :key="post">
             ゲスト
             <br>
-             <p class="post3">{{ comment }}</p>
-            </div>
-          </td>
+            <p class=post3>{{ comment.content }}</p>
+            </div></td>
         </tr>
 
             <td>
@@ -160,7 +159,7 @@ export default {
       console.log(this.user_id)
     console.log(this.content)
       const sendData = {
-        post_id: this.$route.query.postId,
+        post_id: this.post_id,
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,
@@ -168,7 +167,7 @@ export default {
 
       console.log(sendData)
 
-      await this.$axios.post("http://127.0.0.1:8000/api/comment/store", sendData).then( res => {
+      await this.$axios.get("http://127.0.0.1:8000/api/comment/store", sendData).then( res => {
           location.reload();
           })
       this.content = "";

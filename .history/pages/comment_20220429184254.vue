@@ -82,13 +82,17 @@ h2{
               <h2 class=comedaiji>コメント</h2>
             </tr>
         <tr >
-          <td v-if="post" class=post>
-            <div class=post2  v-for="content in post.comments" :key="content">
-            ゲスト
+          <td class=post>
+            <div class=post2  v-for="post in contactLists" :key="post">
+            {{ post.user.name }}
+            
+
+          
+              <NuxtLink :to="{ path: 'comment', query: { postId: post.id } }"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
+            
             <br>
-             <p class="post3">{{ comment }}</p>
-            </div>
-          </td>
+            <p class=post3>{{ post.content }}</p>
+            </div></td>
         </tr>
 
             <td>
@@ -160,7 +164,7 @@ export default {
       console.log(this.user_id)
     console.log(this.content)
       const sendData = {
-        post_id: this.$route.query.postId,
+        post_id: this.post_id,
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,

@@ -64,9 +64,9 @@ h2{
           <td class=post>
             
             <div v-if="post" class="post2">
-            {{ post.user.name }}
-            {{ this.$route.query.postId }}
             
+            {{ this.$route.query.postId }}
+            {{ post }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -74,23 +74,33 @@ h2{
             
             
             <br>
-            <p class=post3>{{ post.content }}</p>
+            <p class=post3></p>
             </div>
             
             </td>
             <tr>
               <h2 class=comedaiji>コメント</h2>
             </tr>
-        <tr >
-          <td v-if="post" class=post>
-            <div class=post2  v-for="content in post.comments" :key="content">
-            ゲスト
-            <br>
-             <p class="post3">{{ comment }}</p>
-            </div>
-          </td>
-        </tr>
+            <tr>
+              <td class=comment>
+                <p class=post2>ゲスト</p>
+                  <br>
+                  <div class=post2  v-for="comment in contactLists" :key="comment">
+                  
+                  </div>
+                  
 
+                  <v-row justify="center">
+    <v-col cols="9">
+
+
+
+
+    </v-col>
+  </v-row>
+
+              </td>
+            </tr>
             <td>
 
             </td>
@@ -160,7 +170,7 @@ export default {
       console.log(this.user_id)
     console.log(this.content)
       const sendData = {
-        post_id: this.$route.query.postId,
+        post_id: this.post_id,
         content: this.content,
         created_at: this.created_at,
         updated_at: this.updated_at,
