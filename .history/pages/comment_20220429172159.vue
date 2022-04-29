@@ -63,7 +63,7 @@ h2{
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            {{ post.user.name }}
+            {{ post.user.name }}{{ post }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -91,7 +91,7 @@ h2{
     <v-col cols="9">
 
 {{ this.$route.query.postId }}
-
+{{ post }}
 
     </v-col>
   </v-row>

@@ -92,7 +92,7 @@ h2{
 
 {{ this.$route.query.postId }}
 
-
+      
     </v-col>
   </v-row>
 

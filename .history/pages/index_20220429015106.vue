@@ -150,7 +150,7 @@ cursor: pointer;
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
-              <NuxtLink :to="{ path: 'comment', query: { postId: post.id } }"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
+              <NuxtLink to="/comment"><button class="btn5"><img class="icon" src="/img/feather.png"></button></NuxtLink>
             
             <br>
             <p class=post3>{{ post.content }}</p>

@@ -63,7 +63,7 @@ h2{
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            {{ post.user.name }}
+            名前{{ post.user.name }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -83,18 +83,11 @@ h2{
                 <p class=post2>ゲスト</p>
                   <br>
                   <div class=post2  v-for="comment in contactLists" :key="comment">
-                  
+                  {{ this.$route.query.postId }}
                   </div>
                   
 
-                  <v-row justify="center">
-    <v-col cols="9">
-
-{{ this.$route.query.postId }}
-
-
-    </v-col>
-  </v-row>
+                
 
               </td>
             </tr>
@@ -127,7 +120,6 @@ export default {
       user_id: "",
       content: "",
       user: "",
-      post: null,
       contactLists: [],
       message: 'ログインができておりません',
     }
@@ -139,7 +131,7 @@ export default {
 
 
 
-    async deleteContact(id) {
+     async deleteContact(id) {
       await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
       this.getContact();
     },
@@ -188,11 +180,6 @@ export default {
         emitFunc2() {
       this.$emit('updateContent', this.content)
     },
-
-    async created(){
-      const response = await this.$axios.get(`http://127.0.0.1:8000/api/post/show/${this.$route.query.postId}`);
-      this.post = response.data.data; 
-    } 
 
   },
 

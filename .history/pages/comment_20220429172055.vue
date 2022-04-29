@@ -63,7 +63,7 @@ h2{
         <tr >
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
-            {{ post.user.name }}
+            {{ post.user.name }}{{ post }}
             
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
@@ -91,8 +91,9 @@ h2{
     <v-col cols="9">
 
 {{ this.$route.query.postId }}
+{{ post }}
 
-
+      ああ{ "id": 112, "user_id": "fqNCdFK592e2T57DVs0m5lsj1i03", "content": "ｇっｒｇ", "created_at": "2022-04-29T07:15:16.000000Z", "updated_at": "2022-04-29T07:15:16.000000Z", "user": { "id": "fqNCdFK592e2T57DVs0m5lsj1i03", "name": "ああ", "email": "aaaaa@mail.com", "email_verified_at": null, "created_at": "2022-04-28T08:52:12.000000Z", "updated_at": "2022-04-28T08:52:12.000000Z" } } 
     </v-col>
   </v-row>
 

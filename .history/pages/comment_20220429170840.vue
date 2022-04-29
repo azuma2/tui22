@@ -90,9 +90,9 @@ h2{
                   <v-row justify="center">
     <v-col cols="9">
 
-{{ this.$route.query.postId }}
+{{ this.$route.query.postId. }}
 
-
+      
     </v-col>
   </v-row>
 

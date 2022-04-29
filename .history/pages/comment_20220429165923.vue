@@ -64,7 +64,7 @@ h2{
           <td class=post>
             <div class=post2  v-for="post in contactLists" :key="post">
             {{ post.user.name }}
-            
+            {{ this.$route.query.postId }}
               <button class="btn3" @click="deleteContact(post.id)"><img class="icon" src="/img/heart.png"></button>
               <button class="btn4" @click="deleteContact(post.id)"><img class="icon" src="/img/cross.png"></button>
           
@@ -92,7 +92,7 @@ h2{
 
 {{ this.$route.query.postId }}
 
-
+      
     </v-col>
   </v-row>
 
@@ -139,7 +139,7 @@ export default {
 
 
 
-    async deleteContact(id) {
+     async deleteContact(id) {
       await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
       this.getContact();
     },

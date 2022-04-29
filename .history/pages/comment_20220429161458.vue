@@ -91,8 +91,7 @@ h2{
     <v-col cols="9">
 
 {{ this.$route.query.postId }}
-
-
+      
     </v-col>
   </v-row>
 
@@ -139,7 +138,7 @@ export default {
 
 
 
-    async deleteContact(id) {
+     async deleteContact(id) {
       await this.$axios.delete("http://127.0.0.1:8000/api/post/destroy/" + id);
       this.getContact();
     },
