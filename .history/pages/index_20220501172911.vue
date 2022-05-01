@@ -205,7 +205,7 @@ export default {
      const id = this.post_id
      const array = ["/posts/",id,"/check"];
      const path = array.join('')
-     axios.get(path).then(res => {
+     axios.get("http://127.0.0.1:8000/api/like/a").then(res => {
        if(res.data == 1) {
          this.status = true
        } else {

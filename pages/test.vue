@@ -1,4 +1,3 @@
-
 <style>
 
 
@@ -201,11 +200,11 @@ export default {
   methods: {
 
 
-  like_check() {
+    like_check() {
      const id = this.post_id
-     const array = ["/posts/",id,"/check"];
-     const path = array.join('')
-     axios.get(path).then(res => {
+     
+     
+     .then(res => {
        if(res.data == 1) {
          this.status = true
        } else {
@@ -215,10 +214,6 @@ export default {
        console.log(err)
      })
    },
-
-
-
-
 
 
 
@@ -278,8 +273,7 @@ export default {
       }
     })
     this.getContact()
-
-   this.like_check()
+    this.like_check()
 
 
     
